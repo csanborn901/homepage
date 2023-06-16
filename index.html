@@ -1,696 +1,1003 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>Barnhart University 2.0</title> 
+  <head>
+    <meta charset="utf-8" />
+    <title>Barnhart University 2.0</title>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>	  
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>  
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 	
-	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
-
-<style>
-	
-::-webkit-scrollbar {
-	display: none; 
-	overflow-x: hidden;
-	}
-
-body{
-  background-color: #848482;
-  overflow-x: hidden;
-}	
-	
-.bu-container {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	flex-flow: row wrap;
-	justify-content: space-evenly;
-	align-items: center;
-	align-content: center;
-	gap: 10px;
-	width: ;
-	}	
-	
-#bu-topnav {
-	background-color: #cc0033;
-	z-index: 2;
-	overflow: hidden;
-  	  -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    position: fixed;
-    z-index: 1000;
-	}
-	
-#bu-navbar{
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	flex-flow: row wrap;
-	align-items: center;
-	align-content: center;
-	gap: 10px;
-	flex-grow: 2;
-	padding: 10px;
-	color: white;
-	}	
-
-.navbar-dark .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-  
-}	
-	
-.navbar-toggler {
-		flex-shrink: 1;
-	}
-	
-#bu-navbar li{
-	display: inline;	
-	padding: 10px;
-	font-size: 1vw;
-	}
-
-#bu-navbar li:hover{
-	background-color: white;
-	color: black;
-	}	
-	
-#bu-navbar li a{
-	display: inline;	
-	text-decoration: none;
-	color: white;
-	}	
-
-#bu-navbar li:hover a{
-	color: black;
-	}		
-
-#bu-navbar-collapse {
-		
-	}	
-	
-.nav-item {
-	font-size: 1.2rem !important;	
-		}	
-	
-.nav-item a{
-	font-size: calc(12px + .5vw);
-	}	
-
-#navbarSupportedContent {
-	align-self: center;	
-	}	
-	
-.navbar-brand {
-	font-weight: bold;	
-		}		
-
-.bu-brand{
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	flex-flow: row wrap;
-	align-items: center;
-	align-content: center;
-	gap: 10px;
-	flex-grow: 1;
-	padding: 10px;
-	}	
-	
-.bu-search {
-  padding: 10px 10px;
-  display: flex;
-  flex-grow: 5;
-  justify-content:   left;
-	}	
-	
-.bu-search bu-btn {
-  display: flex;
-  flex-flow: row wrap;
-  flex-grow: 2;
-  flex-basis: auto;
-  padding: 6px 10px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-}
-
-#bu-searchbox {
-	width: 100%;	
-	border-radius: 5px;
-	border: none;
-	margin-right: 10px;
-	}
-	
-#bu-btn {
-	border-radius: 5px;
-	border: none;
-	}
-	
-.bu-search button:hover {
-  background: #ffffff;
-}	
-	
-.bu_parallax_container {
-  border-bottom: 0px solid white;
-  padding-top: 100px;;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content:flex-end;
-  min-height: 90vh;
-}	
-
-#bu_parallax_logo {
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 	100vw; /* changed from "cover" */
-  background-color: #CC0033; 
-  background-image: url("https://d36ai2hkxl16us.cloudfront.net/thoughtindustries/image/upload/a_exif,c_fill,w_1400/v1/course-uploads/c50f33e0-665b-4906-a26e-7d18bc3b9c5e/6xrfa505gfx5-BURedBG.png");
-}	
-	
-.bu_parallax_red {
-  background-color: #CC0033;
-  display: flex;
-}
-
-.red-block{
-	background-color: rgba(204, 0, 51, 0); 
-	}
-	
-.bu_parallax_gray {
-  display: flex;
-  background-color: #848482;
-}
-	
-.col-md-6 {
-	padding: 10px;
-	}
-
-.col-xl-4 {
-	padding: 10px;
-	}
-	
-.col-xl-6 {
-	padding: 10px;
-	}
-	
-.offset-xl-0 {
-	padding: 10px;
-	}
-	
-.card {
-  margin: 20px !important;	
-  height: 100%;
-		}	
-	
-.card-body {
-		box-shadow: 0px 0px 20px rgba(0, 0, 0, .25)
-	}
-
-.card-body p{
-	padding:5px;
-	}
-	
-.btn-primary {
-  color: #fff;
-  background-color: #cc0033;
-  border-color: #cc0033;
-}
-
-.btn-primary:hover {
-  color: #fff;
-  background-color: #cc0033;
-  border-color: #cc0033;
-}
-
-.btn-primary:focus, .btn-primary.focus {
-  color: #fff;
-  background-color: #cc0033;
-  border-color: #cc0033;
-  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
-}
-
-.btn-primary.disabled, .btn-primary:disabled {
-  color: #fff;
-  background-color: #cc0033;
-  border-color: #cc0033;
-}
-
-.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
-.show > .btn-primary.dropdown-toggle {
-  color: #fff;
-  background-color: #cc0033;
-  border-color: #cc0033;
-}
-
-.row {
-	width:100%;
-	}	
-	
-.section-content{
-	display: ;
-	margin: auto;
-	width: 100%;
-	z-index: 1;
-	padding-bottom: 120px;
-		}	
-
-.bu-section-title {
-	display: inline-block;
-	}
-
-.bu-section-title *{
-	padding: 10px 50px;	
-	border-radius: 5px;
-	}
-
-.section-title-red {
-  	display: flex;
-	color: white;
-	background-color: #cc0033;
-	height: 80px;
-  	justify-content: center;
- 	align-items: center;
-		}
-		
-.section-title-gray {
-  	display: flex;
-	color: white;
-  	background-color: #848482;
- 	height: 80px;
-  	justify-content: center;
- 	align-items: center;
-		}
-		
-.section-title-white {
-  	display: flex;
-	color: #CC0033;
-	font-weight: bold;
-  	background-color: #ffffff;
- 	height: 80px;
-  	justify-content: center;
- 	align-items: center;
-		}	
-
-#Video_Library{
-	padding-top: ;	
-	}	
-	
-.footer {height:20px !important;overflow:hidden !important;}
-
-.footer:hover {height:auto !important;}
-	
-	
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-	.bu-navbar {}
-	.bu_parallax_container{padding-top: ;}
-	#bu-btn {border-radius: 5px; border: none; background-color: rgb(240, 240, 240); color: black;	}
-	#navbarSupportedContent {justify-content: center;}
-	}	
-	
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {...}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (max-width: 768px) {...}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {...}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {...}	
-	
-</style>	
-	
-	
-</head>
-	
-<body>
-	
-<div class="bu-container fixed-top " id="bu-topnav" style="box-shadow: 0px 0px 20px rgba(0, 0, 0, .25)">
-  <nav class="navbar navbar-expand-lg navbar-dark" id="bu-navbar" style=";">
-	
-	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
 	  
-       <div class="collapse navbar-collapse navbar-expand" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto" style="height: 100%;">
-			  <li class="nav-item">
-                  <a class="nav-link active d-lg-none" href="#Video_Library">
-            		<span data-bs-toggle="collapse" data-bs-target="#main-menu-navbar">Videos</span>
-            	  </a>
-            	  <a class="nav-link active d-none d-lg-block" href="#Video_Library">Videos</a>
-				  
-             </li>
-			  <li class="nav-item">
-				<a class="nav-link active d-lg-none" href="#Safety">
-            		<span data-bs-toggle="collapse" data-bs-target="#main-menu-navbar">Safety</span>
-            	  </a>
-            	  <a class="nav-link active d-none d-lg-block" href="#Safety">Safety</a>  
-				  
-			  </li>
-			  <li class="nav-item">
-				  <a class="nav-link active d-lg-none" href="#Training">
-            		<span data-bs-toggle="collapse" data-bs-target="#main-menu-navbar">Training</span>
-            	  </a>
-            	  <a class="nav-link active d-none d-lg-block" href="#Training">Training</a>  
-			
-             </li>
-             <li class="nav-item">
-				 <a class="nav-link active d-lg-none" href="#DOT">
-            		<span data-bs-toggle="collapse" data-bs-target="#main-menu-navbar">DOT</span>
-            	  </a>
-            	  <a class="nav-link active d-none d-lg-block" href="#DOT">DOT</a>
-             </li>
-			 <li class="nav-item">
-				 <a class="nav-link active d-lg-none" href="#Barnhart-Cares">
-            		<span data-bs-toggle="collapse" data-bs-target="#main-menu-navbar">Barnhart Cares</span>
-            	  </a>
-            	  <a class="nav-link active d-none d-lg-block" href="#Barnhart-Cares">Barnhart Cares</a>
-             </li>
-          </ul>
-       </div>	
-	</nav>
-	
-	
-  <div class="bu-search">
-	<input type="text" id="bu-searchbox" placeholder=" Search Barnhart University..." onfocus="this.placeholder=''" onblur="this.placeholder='  Search...'" onkeyup="if(event.keyCode == 13) window.open('https://learn.iti.com/pages/barnhart-u-catalog?label=search&value=' + document.getElementById('bu-searchbox').value);"/>
-<button type="submit" id="bu-btn" value="Search" onClick="javascript: window.open('https://learn.iti.com/pages/barnhart-u-catalog?label=search&value=' + document.getElementById('bu-searchbox').value);" ><i class="fa fa-search"></i></button>
-	</div>
-	
-</div>	
 
-<!--
+    <style>
+      ::-webkit-scrollbar {
+        display: none;
+        overflow-x: hidden;
+      }
+
+      body {
+        background-color: #848482;
+        overflow-x: hidden;
+      }
+	    
+      .bu-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        align-content: center;
+        gap: 10px;
+        width: ;
+      }
+
+      #bu-topnav {
+        background-color: #cc0033;
+        z-index: 2;
+        overflow: hidden;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        position: fixed;
+        z-index: 1000;
+      }
+
+      #bu-navbar {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        flex-flow: row wrap;
+        align-items: center;
+        align-content: center;
+        gap: 10px;
+        flex-grow: 2;
+        padding: 0px;
+        color: white;
+      }
+
+      .navbar-dark .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+      }
+
+      .navbar-toggler {
+        flex-shrink: 1;
+      }
+
+      #bu-navbar li {
+        display: inline;
+        padding: 10px;
+        font-size: 1vw;
+      }
+
+      #bu-navbar li:hover {
+        background-color: white;
+        color: black;
+      }
+
+      #bu-navbar li a {
+        display: inline;
+        text-decoration: none;
+        color: white;
+      }
+
+      #bu-navbar li:hover a {
+        color: black;
+      }
+
+      #bu-navbar-collapse {
+      }
+
+      .nav-item {
+        font-size: 1.2rem !important;
+      }
+
+      .nav-item a {
+        font-size: calc(12px + 0.5vw);
+      }
+
+      #navbarSupportedContent {
+        align-self: center;
+      }
+
+      .navbar-brand {
+        font-weight: bold;
+      }
+
+      .bu-brand {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        flex-flow: row wrap;
+        align-items: center;
+        align-content: center;
+        gap: 10px;
+        flex-grow: 1;
+        padding: 10px;
+      }
+
+      .bu-search {
+        padding: 10px 10px;
+        display: flex;
+        flex-grow: 5;
+        justify-content: left;
+      }
+
+      .bu-search bu-btn {
+        display: flex;
+        flex-flow: row wrap;
+        flex-grow: 2;
+        flex-basis: auto;
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        background: #ddd;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+      }
+
+      #bu-searchbox {
+        width: 100%;
+        border-radius: 5px;
+        border: none;
+        margin-right: 10px;
+      }
+
+      #bu-btn {
+        border-radius: 5px;
+        border: none;
+      }
+
+      .bu-search button:hover {
+        background: #ffffff;
+      }
+
+      .bu_parallax_container {
+        border-bottom: 0px solid white;
+        padding-top: 100px;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        min-height: 90vh;
+      }
+
+      #bu_parallax_logo {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100vw; /* changed from "cover" */
+        background-color: #cc0033;
+        background-image: url("https://d36ai2hkxl16us.cloudfront.net/thoughtindustries/image/upload/a_exif,c_fill,w_1400/v1/course-uploads/c50f33e0-665b-4906-a26e-7d18bc3b9c5e/6xrfa505gfx5-BURedBG.png");
+      }
+
+      .bu_parallax_red {
+        background-color: #cc0033;
+        display: flex;
+      }
+
+      .red-block {
+        background-color: rgba(204, 0, 51, 0);
+      }
+
+      .bu_parallax_gray {
+        display: flex;
+        background-color: #848482;
+      }
+
+      .col-md-6 {
+        padding: 10px;
+      }
+
+      .col-xl-4 {
+        padding: 10px;
+      }
+
+      .col-xl-6 {
+        padding: 10px;
+      }
+
+      .offset-xl-0 {
+        padding: 10px;
+      }
+
+      .card {
+        margin: 20px !important;
+        height: 100%;
+      }
+
+      .card-body {
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+      }
+
+      .card-body p {
+        padding: 5px;
+      }
+
+      .btn-primary {
+        color: #fff;
+        background-color: #cc0033;
+        border-color: #cc0033;
+        align-self: center;
+        width: fit-content;
+      }
+
+      .btn-primary:hover {
+        color: #fff;
+        background-color: #cc0033;
+        border-color: #cc0033;
+      }
+
+      .btn-primary:focus,
+      .btn-primary.focus {
+        color: #fff;
+        background-color: #cc0033;
+        border-color: #cc0033;
+        box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+      }
+
+      .btn-primary.disabled,
+      .btn-primary:disabled {
+        color: #fff;
+        background-color: #cc0033;
+        border-color: #cc0033;
+      }
+
+      .btn-primary:not(:disabled):not(.disabled):active,
+      .btn-primary:not(:disabled):not(.disabled).active,
+      .show > .btn-primary.dropdown-toggle {
+        color: #fff;
+        background-color: #cc0033;
+        border-color: #cc0033;
+      }
+
+      .row {
+        width: 100%;
+      }
+
+      .section-content {
+        display: ;
+        margin: auto;
+        width: 100%;
+        z-index: 1;
+        padding-bottom: 120px;
+      }
+
+      .bu-section-title {
+        display: inline-block;
+      }
+
+      .bu-section-title * {
+        padding: 10px 50px;
+        border-radius: 5px;
+      }
+
+      .section-title-red {
+        display: flex;
+        color: white;
+        background-color: #cc0033;
+        height: 80px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .section-title-gray {
+        display: flex;
+        color: white;
+        background-color: #848482;
+        height: 80px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .section-title-white {
+        display: flex;
+        color: #cc0033;
+        font-weight: bold;
+        background-color: #ffffff;
+        height: 80px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #Video_Library {
+        padding-top: ;
+      }
+
+      .footer {
+        height: 20px !important;
+        overflow: hidden !important;
+      }
+
+      .footer:hover {
+        height: auto !important;
+      }
+
+      /* Extra small devices (phones, 600px and down) */
+      @media only screen and (max-width: 600px) {
+        .bu-navbar {
+        }
+        .bu_parallax_container {
+          padding-top: ;
+        }
+        #bu-btn {
+          border-radius: 5px;
+          border: none;
+          background-color: rgb(240, 240, 240);
+          color: black;
+        }
+        #navbarSupportedContent {
+          justify-content: center;
+        }
+      }
+
+      /* Small devices (portrait tablets and large phones, 600px and up) */
+      @media only screen and (min-width: 600px) {
+        ...;
+      }
+
+      /* Medium devices (landscape tablets, 768px and up) */
+      @media only screen and (max-width: 768px) {
+        ...;
+      }
+
+      /* Large devices (laptops/desktops, 992px and up) */
+      @media only screen and (min-width: 992px) {
+        ...;
+      }
+
+      /* Extra large devices (large laptops and desktops, 1200px and up) */
+      @media only screen and (min-width: 1200px) {
+        ...;
+      }
+    </style>
+  </head>
+
+<body>
+	  
+ 
+    <div
+      class="bu-container fixed-top"
+      id="bu-topnav"
+      style="box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25)"
+    >
+      <nav class="navbar navbar-expand-lg navbar-dark" id="bu-navbar" style="">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="collapse navbar-collapse navbar-expand"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav mr-auto" style="height: 100%">
+            <li class="nav-item">
+              <a class="nav-link active d-lg-none" href="#Video_Library">
+                <span
+                  data-bs-toggle="collapse"
+                  data-bs-target="#main-menu-navbar"
+                  >Videos</span
+                >
+              </a>
+              <a class="nav-link active d-none d-lg-block" href="#Video_Library"
+                >Videos</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active d-lg-none" href="#Safety">
+                <span
+                  data-bs-toggle="collapse"
+                  data-bs-target="#main-menu-navbar"
+                  >Safety</span
+                >
+              </a>
+              <a class="nav-link active d-none d-lg-block" href="#Safety"
+                >Safety</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active d-lg-none" href="#Training">
+                <span
+                  data-bs-toggle="collapse"
+                  data-bs-target="#main-menu-navbar"
+                  >Training</span
+                >
+              </a>
+              <a class="nav-link active d-none d-lg-block" href="#Training"
+                >Training</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active d-lg-none" href="#DOT">
+                <span
+                  data-bs-toggle="collapse"
+                  data-bs-target="#main-menu-navbar"
+                  >DOT</span
+                >
+              </a>
+              <a class="nav-link active d-none d-lg-block" href="#DOT">DOT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active d-lg-none" href="#Employee-Resources">
+                <span
+                  data-bs-toggle="collapse"
+                  data-bs-target="#main-menu-navbar"
+                  >Barnhart Cares</span
+                >
+              </a>
+              <a
+                class="nav-link active d-none d-lg-block"
+                href="#Employee-Resources"
+                >Employee Resources</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="bu-search">
+        <input
+          type="text"
+          id="bu-searchbox"
+          placeholder=" Search Barnhart University..."
+          onfocus="this.placeholder=''"
+          onblur="this.placeholder='  Search...'"
+          onkeyup="if(event.keyCode == 13) window.open('https://learn.iti.com/pages/barnhart-u-catalog?label=search&value=' + document.getElementById('bu-searchbox').value);"
+        />
+        <button
+          type="submit"
+          id="bu-btn"
+          value="Search"
+          onClick="javascript: window.open('https://learn.iti.com/pages/barnhart-u-catalog?label=search&value=' + document.getElementById('bu-searchbox').value);"
+        >
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </div>
+
+    <!--
 <img src="https://raw.githubusercontent.com/csanborn901/BU-LMS-2023/main/images/BU%20White%20Logo-01.svg" style="width:80vw;position:fixed;left:0;right:0;top:0;bottom:0;margin: auto; opacity: .4; z-index:0;">
 -->
-	
-<img id="BU-bg-logo" src="https://raw.githubusercontent.com/csanborn901/BU-LMS-2023/main/images/BU%20Logo%202022%20Vector%20-%20White%20Border.svg" style="width:50vw;max-width:700px;position:fixed;left:0;right:0;top:0;bottom:0;margin: auto; opacity: ">
-	
-<!-- Videos -->
-	
-<div class="bu_parallax_container bu_parallax_gray" id="Video_Library">	
 
-	<div class="section-content"  align="center" id="">
-	
-		<br>
-		<br>
-	<div class="bu-section-title" id="Videos">
-          <div class="" align="center"><h1 class="section-title-white" style="box-shadow: 0px 0px 20px rgba(0, 0, 0, .25)"><a href="https://learn.iti.com/pages/barnhart-u-videos"  target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: inherit;">Video Library</a></h1></div>
-       </div>
-       <br>
-       <br>
-          <div class="col-lg-10" style=""><div class="row" style="justify-content: center;">
-          <div class="col-md-6 text-center col-xl-4" style="">
-             <div class="card">
-                <div class="card-body">
-					 <br>
-                   <h2><strong>Weekly BUs</strong></h2>
-		
-					 <br>
-                   <p>Check out the latest and past Weekly BU videos here.</p><br>
+    <img
+      id="BU-bg-logo"
+      src="https://raw.githubusercontent.com/Barnhart-University/assets/main/BU%20Logo%202022%20Vector%20-%20White%20Border.svg"
+      style="
+        width: 50vw;
+        max-width: 700px;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        opacity: ;
+      "
+    />
+	  
+  <!--	  Potential White logo for transparency.
+	    <img
+      id="BU-bg-logo"
+      src="https://raw.githubusercontent.com/Barnhart-University/assets/main/BU%20Logo%20-%20White%202023.svg"
+      style="
+        width: 50vw;
+        max-width: 700px;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        z-index: -1;
+      "
+    />  
 
-					 <br>
-                   <a href="https://learn.iti.com/pages/barnhart-u-videos?labels=%5B%22Discipline%22%5D&values=%5B%22Weekly%20BU%22%5D"  target="_blank" rel="noopener noreferrer"  class="btn btn-primary">Weekly BUs</a>
-					 <br>
-					 <br>
-                </div>
-             </div>
+-->
+	  
+    <!-- Videos -->
+
+    <div class="bu_parallax_container bu_parallax_gray" id="Video_Library">
+      <div class="section-content" align="center" id="">
+        <br />
+        <br />
+        <div class="bu-section-title" id="Videos">
+          <div class="" align="center">
+            <h1
+              class="section-title-white"
+              style="box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25)"
+            >
+              Video Library
+            </h1>
           </div>
-          <div class="col-md-6 text-center col-xl-4">
-             <div class="card">
-                <div class="card-body">
-					 <br>
-                   <h2><strong>Monthly Company Updates</strong></h2>
-		
-					 <br>
-                   <p>Stay up-to-date on what's happening at Barnhart with the Monthly Company Updates from senior leadership.</p><br>
+        </div>
+        <br />
+        <br />
+        <div class="col-lg-10" style="">
+          <div class="row" style="justify-content: center">
+            <div class="col-md-6 text-center col-xl-4" style="">
+              <div class="card">
+                <div class="card-body d-flex flex-column">
+                  <br />
+                  <h2><strong>Weekly BUs</strong></h2>
 
-					 <br>
-                    <a href="https://learn.iti.com/pages/barnhart-u-videos?labels=%5B%22Discipline%22%5D&values=%5B%22Monthly%20Company%20Update%22%5D" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Monthly Updates</a>
-					 <br>
-					 <br>
+                  <br />
+                  <p>Check out the latest and past Weekly BU videos here.</p>
+                  <br />
+
+                  <br />
+                  <a
+                    href="https://learn.iti.com/pages/barnhart-u-videos?labels=%5B%22Discipline%22%5D&values=%5B%22Weekly%20BU%22%5D"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary mt-auto"
+                    >Weekly BUs</a
+                  >
+                  <br />
+                  <br />
                 </div>
-             </div>
-          </div>
-			  
-          </div>
-     </div>
+              </div>
+            </div>
+            <div class="col-md-6 text-center col-xl-4">
+              <div class="card">
+                <div class="card-body d-flex flex-column">
+                  <br />
+                  <h2><strong>Monthly Company Updates</strong></h2>
 
-	</div>
-   </div>
-	
-<!-- Safety -->
-	
-<div class="bu_parallax_container bu_parallax_red" id="Safety">
-	<div class="section-content"  align="center" id="">
-		<br>
-		<br>
-	<div class="bu-section-title" id="Safety-Title">
-          <div class="" align="center"><h1 class="section-title-white" style="box-shadow: 0px 0px 20px rgba(0, 0, 0, .25)">SAFETY</h1></div>
-       </div>
-       <br>
-       <br>
-          <div class="col-lg-10" align="center"><div class="row">
-          <div class="col-md-6 text-center col-xl-4">
-             <div class="card">
-                <div class="card-body">
-					 <br>
-                   <h2><strong>ANNUAL SSH&amp;E'S</strong></h2>
-		
-					 <br>
-                   <p>A review of the meaning and application of the TSP principles and OSHA required basic safety topics. Each employee <b>MUST</b> take this refresher course once each calendar year.
-</p>
-					 <br>
-                   <a href="https://learn.iti.com/learn/learning-path/annual-sshe-review-topics" target="_blank" rel="noopener noreferrer"  class="btn btn-primary">Annual SSH&amp;E Topics</a>
-					 <br>
-					 <br>
+                  <br />
+                  <p>
+                    Stay up-to-date on what's happening at Barnhart with the
+                    Monthly Company Updates from senior leadership.
+                  </p>
+                  <br />
+
+                  <br />
+                  <a
+                    href="https://learn.iti.com/pages/barnhart-u-videos?labels=%5B%22Discipline%22%5D&values=%5B%22Monthly%20Company%20Update%22%5D"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary mt-auto"
+                    >Monthly Updates</a
+                  >
+                  <br />
+                  <br />
                 </div>
-             </div>
-          </div>
-          <div class="col-md-6 text-center offset-xl-0 col-xl-4">
-             <div class="card">
-                <div class="card-body">
-					 <br>
-                   <h2><strong>DEFENSIVE DRIVING</strong></h2>
-		
-					 <br>
-                   <p>Your safety both on and off-the-job is critical. This driver training program will give you the knowledge and skills needed to arrive at your destination safely.</p>
-					 <br>
-                    <a href="https://learn.iti.com/learn/course/defensive-driving-course/lets-begin/start-the-rua-defensive-driver-course-now?client=barnhart" target="_blank" rel="noopener noreferrer"  class="btn btn-primary">Defensive Driving</a>
-					 <br>
-					 <br>
+              </div>
+            </div>
+            <div class="col-md-6 text-center col-xl-4" style="">
+              <div class="card">
+                <div class="card-body d-flex flex-column">
+                  <br />
+                  <h2><strong>All Videos</strong></h2>
+
+                  <br />
+                  <p>View the full Barnhart University video library here.</p>
+                  <br />
+
+                  <br />
+                  <a
+                    href="https://learn.iti.com/pages/barnhart-u-videos"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary mt-auto"
+                    >All Videos</a
+                  >
+                  <br />
+                  <br />
                 </div>
-             </div>
+              </div>
+            </div>
           </div>
-			  
-			<div class="col-md-6 text-center offset-xl-0 col-xl-4">
-             <div class="card">
-                <div class="card-body">
-					 <br>
-                   <h2><strong>FORKLIFT SAFETY</strong></h2>
-		
-					 <br>
-                   <p>A Barnhart course for remedial corrective training and recertification of Basic OSHA forklift operator qualification.</p>
-					 <br>
-                    <a href="https://learn.iti.com/courses/remedial-forklift-and-telehandler" target="_blank" rel="noopener noreferrer"  class="btn btn-primary">Forklift Safety</a>
-					 <br>
-					 <br>
+        </div>
+      </div>
+    </div>
+
+    <!-- Safety -->
+
+    <div class="bu_parallax_container bu_parallax_red" id="Safety">
+      <div class="section-content" align="center" id="">
+        <br />
+        <br />
+        <div class="bu-section-title" id="Safety-Title">
+          <div class="" align="center">
+            <h1
+              class="section-title-white"
+              style="box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25)"
+            >
+              SAFETY
+            </h1>
+          </div>
+        </div>
+        <br />
+        <br />
+        <div class="col-lg-10" align="center">
+          <div class="row">
+            <div class="col-md-6 text-center col-xl-4">
+              <div class="card">
+                <div class="card-body d-flex flex-column">
+                  <br />
+                  <h2><strong>ANNUAL SSH&amp;E'S</strong></h2>
+
+                  <br />
+                  <p>
+                    A review of the meaning and application of the TSP
+                    principles and OSHA required basic safety topics. Each
+                    employee <b>MUST</b> take this refresher course once each
+                    calendar year.
+                  </p>
+                  <br />
+                  <a
+                    href="https://learn.iti.com/learn/learning-path/annual-sshe-review-topics"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary mt-auto"
+                    >Annual SSH&amp;E Topics</a
+                  >
+                  <br />
+                  <br />
                 </div>
-             </div>	
-          	</div>     
-		</div>
-       </div>
-	</div>
-	<br>
-	<br>
+              </div>
+            </div>
+            <div class="col-md-6 text-center offset-xl-0 col-xl-4">
+              <div class="card">
+                <div class="card-body d-flex flex-column">
+                  <br />
+                  <h2><strong>DEFENSIVE DRIVING</strong></h2>
 
-		
-</div>
-	
-<!-- Training -->
+                  <br />
+                  <p>
+                    Your safety both on and off-the-job is critical. This driver
+                    training program will give you the knowledge and skills
+                    needed to arrive at your destination safely.
+                  </p>
+                  <br />
+                  <a
+                    href="https://learn.iti.com/learn/course/defensive-driving-course/lets-begin/start-the-rua-defensive-driver-course-now?client=barnhart"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary mt-auto"
+                    >Defensive Driving</a
+                  >
+                  <br />
+                  <br />
+                </div>
+              </div>
+            </div>
 
-<div class="bu_parallax_container bu_parallax_gray" id="Training">
-		<div class="section-content"  align="center" id="">
-			<br>
-			<br>
-	<div class="">
+            <div class="col-md-6 text-center offset-xl-0 col-xl-4">
+              <div class="card">
+                <div class="card-body d-flex flex-column">
+                  <br />
+                  <h2><strong>FORKLIFT SAFETY</strong></h2>
 
-		<div class="bu-section-title" align="center"><h1 class="section-title-white" style="box-shadow: 0px 0px 20px rgba(0, 0, 0, .25)">TRAINING</h1>
-		</div>
-       </div>
-       <br>
-       <br>
-          <div class="col-lg-10" align="center"><div class="row">
-          <div class="col-md-6 text-center col-xl-4">
-             <div class="card">
-                <div class="card-body">
-					 <br>
-                   <h2><strong>NEW HIRE ORIENTATION</strong></h2>
-		
-					 <br>
-                   <p>All new Barnhart employees begin their journey here.</p>
-					 <br>
-		   <a href="#"  target="_blank" rel="noopener noreferrer" class="btn btn-primary">Coming Soon</a>
-					 <br>
-					 <br>
-                   <!-- Hold Link for release of Learning Path.
+                  <br />
+                  <p>
+                    A Barnhart course for remedial corrective training and
+                    recertification of Basic OSHA forklift operator
+                    qualification.
+                  </p>
+                  <br />
+                  <a
+                    href="https://learn.iti.com/courses/remedial-forklift-and-telehandler"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary mt-auto"
+                    >Forklift Safety</a
+                  >
+                  <br />
+                  <br />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <br />
+    </div>
+
+    <!-- Training -->
+
+    <div class="bu_parallax_container bu_parallax_gray" id="Training">
+      <div class="section-content" align="center" id="">
+        <br />
+        <br />
+        <div class="">
+          <div class="bu-section-title" align="center">
+            <h1
+              class="section-title-white"
+              style="box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25)"
+            >
+              TRAINING
+            </h1>
+          </div>
+        </div>
+        <br />
+        <br />
+        <div class="col-lg-10" align="center">
+          <div class="row">
+            <div class="col-md-6 text-center col-xl-4">
+              <div class="card">
+                <div class="card-body d-flex flex-column">
+                  <br />
+                  <h2><strong>NEW HIRE ORIENTATION</strong></h2>
+
+                  <br />
+                  <p>All new Barnhart employees begin their journey here.</p>
+                  <br />
+                  <h1 class="btn btn-primary mt-auto">Coming Soon</h1>
+			  <!-- Hold Link for release of Learning Path.
 		<a href="https://learn.iti.com/pages/barnhart-u-new-hires"  target="_blank" rel="noopener noreferrer" class="btn btn-primary">New Hires</a>
 					 <br>
 					 <br>
 		  -->
+			
+                  <br />
+                  <br />
+                
                 </div>
-             </div>
-          </div>
-          <div class="col-md-6 text-center col-xl-4">
-             <div class="card" id="In-Person-Training">
-                <div class="card-body">
-					 <br>
-                   <h2><strong>ONBOARDING</strong></h2>
-		
-					 <br>
-                   <p>After completing their orientation, new employees continue their development with these core skills.</p> <br>
+              </div>
+            </div>
+            <div class="col-md-6 text-center col-xl-4">
+              <div class="card" id="In-Person-Training">
+                <div class="card-body d-flex flex-column">
+                  <br />
+                  <h2><strong>ONBOARDING</strong></h2>
 
+                  <br />
+                  <p>
+                    View the courses related to onboarding new employees.
+                  </p>
+                  <br />
 
-					 <br>
-                    <a href="https://learn.iti.com/pages/barnhart-u-onboarding"  target="_blank" rel="noopener noreferrer" class="btn btn-primary">Onboarding</a>
-					 <br>
-					 <br>
+                  <br />
+                  <a
+                    href="https://learn.iti.com/pages/barnhart-u-onboarding"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary mt-auto"
+                    >Onboarding</a
+                  >
+                  <br />
+                  <br />
                 </div>
-             </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 text-center col-xl-4">
+              <div class="card" id="Continued-Training">
+                <div class="card-body d-flex flex-column">
+                  <br />
+                  <h2><strong>CONTINUOUS TRAINING</strong></h2>
+
+                  <br />
+                  <p>
+                    View helpful training courses related to your role at
+                    Barnhart and register for live-in-person trainings.
+                  </p>
+                  <br />
+
+                  <br />
+                  <a
+                    href="https://learn.iti.com/pages/barnhart-u-training"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary mt-auto"
+                    >Continuous Training</a
+                  >
+                  <br />
+                  <br />
+                </div>
+              </div>
+            </div>
           </div>
-			  
+        </div>
+        <br />
+        <br />
+        <br />
+      </div>
+    </div>
+
+    <!-- DOT -->
+
+    <div class="bu_parallax_container bu_parallax_red" id="DOT">
+      <div class="section-content" align="center" id="">
+        <br />
+        <br />
+        <div class="bu-section-title" id="DOT-Title">
+          <div class="" align="center">
+            <h1
+              class="section-title-white"
+              style="box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25)"
+            >
+              DOT
+            </h1>
+          </div>
+        </div>
+        <br />
+        <br />
+        <div class="col-lg-10" align="center">
+          <div class="row" style="justify-content: center">
+            <div class="col-md-6 text-center col-xl-4">
+              <div class="card">
+                <div class="card-body d-flex flex-column">
+                  <br />
+                  <h2><strong>DOT BASICS</strong></h2>
+
+                  <br />
+                  <p>
+                    DOT Basics provides a introduction to DOT requirements for
+                    those operating Commercial Motor Vehicles (CMVs)
+                  </p>
+                  <br />
+
+                  <br />
+                  <a
+                    href="https://learn.iti.com/learn/course/dot-basics"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary mt-auto"
+                    >DOT Basics</a
+                  >
+                  <br />
+                  <br />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 text-center offset-xl-0 col-xl-4">
+              <div class="card" id="ELDT">
+                <div class="card-body d-flex flex-column">
+                  <br />
+                  <h2><strong>ELDT</strong></h2>
+
+                  <br />
+                  <p>
+                    The theory portion of Entry Level Driver Training (ELDT)
+                    starts here for those wishing to obtain or add endorsements
+                    to a CDL.
+                  </p>
+                  <br />
+
+                  <br />
+                  <a
+                    href="https://learn.iti.com/learn/learning-path/entry-level-driver-training-theory"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary mt-auto"
+                    >ELDT</a
+                  >
+                  <br />
+                  <br />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br />
+        <br />
+      </div>
+    </div>
+
+    <!-- Cares -->
+
+<div class="bu_parallax_container bu_parallax_gray" id="Employee-Resources">
+      <div class="section-content" align="center" id="">
+        <br />
+        <br />
+        <div class="bu-section-title" id="Employee-Resources-Title">
+          <div class="" align="center">
+            <h1
+              class="section-title-white"
+              style="box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25)"
+            >Employee Resources
+            </h1>
+          </div>
+        </div>
+        <br />
+        <br />
+        <div class="col-lg-10" align="center">
+          <div class="row" style="justify-content: center">
+            <div class="col-md-6 text-center col-xl-4">
+              <div class="card">
+                <div class="card-body d-flex flex-column">
+                  <br />
+                  <h2><strong>BARNHART CARES</strong></h2>
+
+                  <br />
+                  <p>
+                    View all of the Barnhart Cares programs available to employees.
+                  </p>
+                  <br />
+
+                  <br />
+                  <a
+                    href="https://learn.iti.com/pages/barnhart-u-cares"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary mt-auto"
+                    >Barnhart Cares</a
+                  >
+                  <br />
+                  <br />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 text-center offset-xl-0 col-xl-4">
+              <div class="card">
+                <div class="card-body d-flex flex-column">
+                  <br />
+                  <h2><strong>BENEFITS</strong></h2>
+
+                  <br />
+                  <p>
+                    View all of the Barnhart benefits available to employees.
+                  </p>
+                  <br />
+
+                  <br />
+                  <a
+                    href="https://learn.iti.com/pages/barnhart-u-benefits"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary mt-auto"
+                    >View Benefits</a
+                  >
+                  <br />
+                  <br />
+                </div>
+              </div>
+            </div>
 		<div class="col-md-6 text-center col-xl-4">
-             <div class="card" id="Continued-Training">
-                <div class="card-body">
-					 <br>
-                   <h2><strong>CONTINUOUS TRAINING</strong></h2>
-		
-					 <br>
-                   <p>View helpful training courses related to your role at Barnhart and register for live-in-person trainings.</p> <br>
+              <div class="card">
+                <div class="card-body d-flex flex-column">
+                  <br />
+                  <h2><strong>TECH TRAINING</strong></h2>
 
+                  <br />
+                  <p>
+                    View resources related to the important apps and programs related to your role.
+                  </p>
+                  <br />
 
-					 <br>
-                    <a href="https://learn.iti.com/pages/barnhart-u-training"  target="_blank" rel="noopener noreferrer" class="btn btn-primary">Continuous Training</a>
-					 <br>
-					 <br>
+                  <br />
+                  <a
+                    href="https://learn.iti.com/pages/barnhart-u-training?label=search&value=tech%20training"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary mt-auto"
+                    >Tech Training</a
+                  >
+                  <br />
+                  <br />
                 </div>
-             </div>
-          </div>	  
-			  
-     </div>
-       </div>
-	<br>
-	<br>
-	<br>
-	</div>
-
-		
-</div>	
-	
-<!-- DOT -->
-	
-<div class="bu_parallax_container bu_parallax_red" id="DOT">
-	<div class="section-content"  align="center" id="">        	
-		<br>
-		<br>
-<div class="bu-section-title" id="DOT-Title">
-          <div class="" align="center"><h1 class="section-title-white" style="box-shadow: 0px 0px 20px rgba(0, 0, 0, .25)">DOT</h1></div>
-       </div>
-       <br>
-       <br>
-          <div class="col-lg-10" align="center"><div class="row" style="justify-content: center;">
-          <div class="col-md-6 text-center col-xl-4">
-             <div class="card">
-                <div class="card-body">
-					 <br>
-                   <h2><strong>DOT BASICS</strong></h2>
-		
-					 <br>
-                   <p>DOT Basics provides a introduction to DOT requirements for those operating Commercial Motor Vehicles (CMVs)</p><br>
-
-					 <br>
-                   <a href="https://learn.iti.com/learn/course/dot-basics"  target="_blank" rel="noopener noreferrer" class="btn btn-primary">DOT Basics</a>
-					 <br>
-					 <br>
-                </div>
-             </div>
+              </div>
+            </div>  
           </div>
-          <div class="col-md-6 text-center offset-xl-0 col-xl-4">
-             <div class="card" id="ELDT">
-                <div class="card-body">
-					 <br>
-                   <h2><strong>ELDT</strong></h2>
-		
-					 <br>
-                   <p>The theory portion of Entry Level Driver Training (ELDT) starts here for those wishing to obtain or add endorsements to a CDL.</p> <br>
+        </div>
 
-
-					 <br>
-                    <a href="https://learn.iti.com/pages/barnhart-u-in-person-classes"  target="_blank" rel="noopener noreferrer" class="btn btn-primary">ELDT</a>
-					 <br>
-					 <br>
-                </div>
-             </div>
-          </div>
-     </div>
-       </div>
-		
-	
-  		<br>
-		<br>
-	</div>
-
-		
-</div>   
-	
-<!-- Cares -->
-
-<div class="bu_parallax_container bu_parallax_gray" id="Barnhart-Cares">
-		<div class="section-content"  align="center" id="">
-			<br>
-			<br>
-	<div class="bu-section-title" id="Barnhart-Cares-Title">
-          <div class="" align="center"><h1 class="section-title-white" style="box-shadow: 0px 0px 20px rgba(0, 0, 0, .25)">BARNHART CARES</h1></div>
-       </div>
-       <br>
-       <br>
-          <div class="col-lg-6" align="center"><div class="row" style="justify-content: center;">
-          <div class="col-md-12 text-center col-xl-8 col-sm-12">
-             <div class="card">
-                <div class="card-body">
-					 <br>
-                   <h2><strong>BARNHART CARES</strong></h2>
-		
-					 <br>
-                   <p>View all of the Barnhart Cares programs available to employees.</p>
-					 <br>
-                   <a href="https://learn.iti.com/pages/barnhart-u-cares"  target="_blank" rel="noopener noreferrer" class="btn btn-primary">Barnhart Cares</a>
-					 <br>
-					 <br>
-                </div>
-             </div>
-          </div>
-     </div>
-       </div>
-		<br>
-	<br>
-	<br>
-	</div>
-		
-</div>	  
-		
-</body>
+        <br />
+        <br />
+      </div>
+    </div>	  
+	  
+	  
+	  
+ </body>
 </html>
